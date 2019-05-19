@@ -46,8 +46,6 @@ var login = function() {
                 alert("Entro")
                 window.location.assign('perfil.html')
                 Cookies.set('user', nombreU);
-
-
             } else {
                 alert("Tu contraseña no corresponde")
 
@@ -58,7 +56,5 @@ var login = function() {
             console.log(error + ' No se logro traer el usuario')
             alert("stop")
         })
-
-
 
 }
