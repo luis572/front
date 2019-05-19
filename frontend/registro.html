@@ -1,26 +1,55 @@
-
-
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>My Awesome Login Page</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<link href="css/estilos.css" rel="stylesheet" />
+	<link href="css/perfil.css" rel="stylesheet" />
 </head>
 <!--Coded with love by Mutiullah Samim-->
+
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+		<div class="container">
+			<img class="logo" src="recursos/logo.PNG"></img>
+			<a class="navbar-brand" href="#" style="color: #49C2C7">BANKNET</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Sing Up</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"> Sing In</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
+						<img src="recursos/logo.PNG" class="brand_logo" alt="Logo">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
@@ -29,43 +58,48 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input id="nombre" type="text" name="" class="form-control input_user" value="" placeholder="Nombre">
+							<input id="nombre" type="text" name="" class="form-control input_user" value=""
+								placeholder="Nombre">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input id="apellido" type="text" name="" class="form-control input_user" value="" placeholder="Apellido">
+							<input id="apellido" type="text" name="" class="form-control input_user" value=""
+								placeholder="Apellido">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input id="cedula" type="text" name="" class="form-control input_user" value="" placeholder="Cedula">
+							<input id="cedula" type="text" name="" class="form-control input_user" value=""
+								placeholder="Cedula">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input id="correo" type="text" name="" class="form-control input_user" value="" placeholder="Correo">
+							<input id="correo" type="text" name="" class="form-control input_user" value=""
+								placeholder="Correo">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input id="contrasena" type="password" name="" class="form-control input_pass" value="" placeholder="password">
+							<input id="contrasena" type="password" name="" class="form-control input_pass" value=""
+								placeholder="password">
 						</div>
 					</form>
 				</div>
 				<div class="d-flex justify-content-center mt-3 login_container">
-					<input type="submit" name="button" class="btn login_btn" value="registrar" onclick="getData()">
+					<input type="submit" name="button" class="btn login_btn" value="Sign in" onclick="getData()">
 
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
 	<script src="/js/main.js"></script>
 </body>
-	
+
 </html>
