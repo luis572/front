@@ -15,7 +15,8 @@ var getData = function() {
     if (isNaN(cedulaI)) {
         alert("Dijite Datos Validos");
     } else {
-        axios.post('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/usuario', {
+        //axios.post('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/usuario', {
+            axios.post('http://localhost:8086/cats/usuario', {
                 nombre: nombreI,
                 apellido: apellidoI,
                 cedula: cedulaI,
@@ -39,9 +40,12 @@ var getData = function() {
 var login = function() {
     var nombreU = $("#correo").val();
     var passwordU = $("#pass").val();
-    axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/correo/' + nombreU)
-        .then(function(response) {
+    alert("Entro")
+    //axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/correo/' + nombreU)
+    axios.get('http://localhost:8086/cats/correo/' + nombreU)    
+    .then(function(response) {
             var passwordUser = response.data.contrasena;
+            alert("Paso")
             if (passwordU == passwordUser) {
                 window.location.assign('perfil.html')
                 Cookies.set('user', nombreU);
