@@ -20,7 +20,8 @@ var getData = function() {
                 apellido: apellidoI,
                 cedula: cedulaI,
                 contrasena: contrasenaI,
-                correo: correoI
+                correo: correoI,
+                monto: 0
 
             })
             .then(function(response) {

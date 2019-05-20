@@ -9,7 +9,7 @@ var getUserData = function() {
             name = response.data.nombre;
             lastname = response.data.apellido;
             email = response.data.correo;
-            balance = 100;
+            balance = response.data.monto;
             llenarDatosProfile(name, lastname, email, balance)
 
 
