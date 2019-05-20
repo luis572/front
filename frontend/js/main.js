@@ -42,20 +42,20 @@ var login = function() {
     axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/correo/' + nombreU)
         .then(function(response) {
             var passwordUser = response.data.contrasena;
-            alert(passwordUser)
             if (passwordU == passwordUser) {
-                alert("Entro")
                 window.location.assign('perfil.html')
                 Cookies.set('user', nombreU);
             } else {
-                alert("Tu contraseña no corresponde")
+                swal({ title: '¡Esa no es tu contraseña!', icon: 'warning', text: 'Revisala', type: 'success' }).then(function() {
+                    console.log("funciono")
+                })
 
             }
 
         }).catch(function(error) {
-            alert("Este correo no existe")
-            console.log(error + ' No se logro traer el usuario')
-            alert("stop")
+            swal({ title: '¡Este usuario no existe!', icon: 'error', text: 'Revisalo Porfa', type: 'success' }).then(function() {
+                console.log("funciono inexistente")
+            })
         })
 
 }

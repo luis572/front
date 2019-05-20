@@ -23,6 +23,7 @@ var getUserData = function() {
 }
 
 var llenarDatosProfile = function(name, lastname, email, balance) {
+    $("#account-profile").append("<h5>" + name + " " + lastname + "</h5>")
     $("#profile-name").append("<p>" + name + "</p>");
     $("#profile-apellido").append("<p>" + lastname + "</p>");
     $("#profile-email").append("<p>" + email + "</p>");
