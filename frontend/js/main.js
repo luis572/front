@@ -16,7 +16,7 @@ var getData = function() {
         alert("Dijite Datos Validos");
     } else {
         //axios.post('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/usuario', {
-            axios.post('http://localhost:8086/cats/usuario', {
+        axios.post('http://localhost:8086/cats/usuario', {
                 nombre: nombreI,
                 apellido: apellidoI,
                 cedula: cedulaI,
@@ -26,11 +26,13 @@ var getData = function() {
 
             })
             .then(function(response) {
-                alert("Te has registrado");
-                console.log(response + ' Se hizo post y se añadio el usuario a la base de datos')
                 window.location.assign('login.html')
+
             })
             .catch(function(error) {
+                swal({ title: '¡Error en el registro!', icon: 'error', text: 'Revisalo Porfa', type: 'success' }).then(function() {
+                    console.log("funciono inexistente")
+                })
                 console.log(error + ' No se logro hacer post')
             })
 
@@ -40,15 +42,14 @@ var getData = function() {
 var login = function() {
     var nombreU = $("#correo").val();
     var passwordU = $("#pass").val();
-    alert("Entro")
     //axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/correo/' + nombreU)
-    axios.get('http://localhost:8086/cats/correo/' + nombreU)    
-    .then(function(response) {
+    axios.get('http://localhost:8086/cats/correo/' + nombreU)
+        .then(function(response) {
             var passwordUser = response.data.contrasena;
-            alert("Paso")
             if (passwordU == passwordUser) {
                 window.location.assign('perfil.html')
                 Cookies.set('user', nombreU);
+                Cookies.set('monto', response.data.monto)
             } else {
                 swal({ title: '¡Esa no es tu contraseña!', icon: 'warning', text: 'Revisala', type: 'success' }).then(function() {
                     console.log("funciono")
