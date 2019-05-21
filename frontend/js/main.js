@@ -15,26 +15,67 @@ var getData = function() {
     if (isNaN(cedulaI)) {
         alert("Dijite Datos Validos");
     } else {
-        //axios.post('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/usuario', {
-        axios.post('http://localhost:8086/cats/usuario', {
-                nombre: nombreI,
-                apellido: apellidoI,
-                cedula: cedulaI,
-                contrasena: contrasenaI,
-                correo: correoI,
-                monto: 0
-
-            })
+        //axios.get('http://localhost:8086/cats/lista/' + cedulaI)
+        axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/lista/' + cedulaI)
             .then(function(response) {
-                window.location.assign('login.html')
+                console.log(response.data)
+                if (response.data == 1) {
+                    swal({ title: '¡Estas en listas negras!', icon: 'warning', text: 'No puedes crear la cuenta', type: 'success' }).then(function() {
+                        console.log("funciono")
+                    })
+                } else {
+                    //axios.post('http://localhost:8086/cats/usuario', {
+                    axios.post('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/usuario', {
+                            nombre: nombreI,
+                            apellido: apellidoI,
+                            cedula: cedulaI,
+                            contrasena: contrasenaI,
+                            correo: correoI,
+                            monto: 0
+
+                        })
+                        .then(function(response) {
+                            window.location.assign('login.html')
+
+                        })
+                        .catch(function(error) {
+                            swal({ title: '¡Error en el registro!', icon: 'error', text: 'Revisalo Porfa', type: 'success' }).then(function() {
+                                console.log("funciono inexistente")
+                            })
+                            console.log(error + ' No se logro hacer post')
+                        })
+
+
+                }
+
+            }).catch(function(error) {
+                //axios.post('http://localhost:8086/cats/usuario', {
+                axios.post('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/usuario', {
+                        nombre: nombreI,
+                        apellido: apellidoI,
+                        cedula: cedulaI,
+                        contrasena: contrasenaI,
+                        correo: correoI,
+                        monto: 0
+
+                    })
+                    .then(function(response) {
+                        window.location.assign('login.html')
+
+                    })
+                    .catch(function(error) {
+                        swal({ title: '¡Error en el registro!', icon: 'error', text: 'Revisalo Porfa', type: 'success' }).then(function() {
+                            console.log("funciono inexistente")
+                        })
+                        console.log(error + ' No se logro hacer post')
+                    })
+
 
             })
-            .catch(function(error) {
-                swal({ title: '¡Error en el registro!', icon: 'error', text: 'Revisalo Porfa', type: 'success' }).then(function() {
-                    console.log("funciono inexistente")
-                })
-                console.log(error + ' No se logro hacer post')
-            })
+
+
+
+        //axios.post('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/usuario', {
 
     }
 }
@@ -42,8 +83,8 @@ var getData = function() {
 var login = function() {
     var nombreU = $("#correo").val();
     var passwordU = $("#pass").val();
-    //axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/correo/' + nombreU)
-    axios.get('http://localhost:8086/cats/correo/' + nombreU)
+    axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/correo/' + nombreU)
+        //axios.get('http://localhost:8086/cats/correo/' + nombreU)
         .then(function(response) {
             var passwordUser = response.data.contrasena;
             if (passwordU == passwordUser) {

@@ -1,5 +1,6 @@
 var obtenerTransacciones = function() {
-    axios.get('http://localhost:8086/cats/all-transaccion')
+    //axios.get('http://localhost:8086/cats/all-transaccion')
+    axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/all-transaccion')
         .then(function(response) {
             llenarTablaRecord(response.data)
         }).catch(function(error) {

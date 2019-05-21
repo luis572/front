@@ -4,8 +4,8 @@ var getUserData = function() {
     let lastname;
     let email;
     let balance;
-    //axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/correo/' + user)
-    axios.get('http://localhost:8086/cats/correo/' + user)
+    axios.get('http://ec2-52-207-245-210.compute-1.amazonaws.com:8086/cats/correo/' + user)
+        //axios.get('http://localhost:8086/cats/correo/' + user)
         .then(function(response) {
             name = response.data.nombre;
             lastname = response.data.apellido;
