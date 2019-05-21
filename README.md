@@ -32,7 +32,7 @@ En este caso el despliegue es automatico ya que esta en aws
 
 ### Pruebas funcionales
 
-https://shop-files.gitbook.io/project/
+https://youtu.be/udMm1XLuaBA
 
 
 Estos test se hicieron verificando que los get y los post se hicieron correctamente
